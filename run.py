@@ -1,7 +1,7 @@
 import os
 import dotenv
 import json
-from typing import Dict, List, Any
+from typing import List
 from openai import OpenAI
 from dataclasses import dataclass
 
@@ -29,10 +29,9 @@ class OpenAIProvider():
     
     def generate_challenge(self, concept: str, difficulty: str) -> CodeChallenge:
         prompt = f"""Create a Python code snippet about {concept} at {difficulty} level that has:
-        1. Contains 2-3 bugs that a student should be able to identify
-        2. Has inconsistent naming issues
-        3. Could be improved for better readability
-        4. Is between 15-20 lines of code
+        1. 2-3 bugs.
+        2. inconsistent naming issues
+        4. 15-20 lines of code
         
         Return only the code without any explanations."""
         
@@ -52,7 +51,7 @@ class OpenAIProvider():
         
     def _create_evaluation_prompt(self, original_code: str, user_solution: str) -> str:
         """Create a standardized evaluation prompt"""
-        return f"""Compare the original buggy code and the user's solution:
+        return f"""Compare the original code and the user's solution:
         
         Original code:
         {original_code}
@@ -63,7 +62,7 @@ class OpenAIProvider():
         Provide an evaluation in the following JSON format:
         {{
             "score": <number between 0-100>,
-            "improvements": [<improvements made by the user in the original code>],
+            "improvements": [<list of improvements made to the original code>],
             "suggestions": [<list of potential further improvements>],
             "explanation": "<brief explanation of the score>"
         }}
@@ -151,7 +150,10 @@ class CodePracticeTool:
             print(f"\nScore: {evaluation.score}/100")
             print("\nImprovements made:")
             for imp in evaluation.improvements:
-                print(f"✓ {imp}")
+                if imp == None:
+                    print("No improvements made to the code")
+                else:
+                    print(f"✓ {imp}")
             
             if evaluation.suggestions:
                 print("\nSuggestions for further improvement:")
@@ -164,7 +166,6 @@ class CodePracticeTool:
             print(f"An error occurred: {str(e)}")
 
 def main():
-    # Example of provider selection
     dotenv.load_dotenv()
     provider = lambda: OpenAIProvider(os.getenv('OPENAI_API_KEY'))
     
