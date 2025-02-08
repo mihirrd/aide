@@ -14,8 +14,8 @@ An intelligent coding practice tool that leverages OpenAI to generate coding cha
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/mihirrd/code-coach-ai.git
-cd code-coach-ai
+git clone https://github.com/mihirrd/aide.git
+cd aide
 ```
 
 2. Create a virtual environment:
