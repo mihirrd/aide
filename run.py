@@ -104,7 +104,7 @@ class CodePracticeTool:
     
     def run_practice_session(self):
         """Run an interactive practice session"""
-        print("Welcome to the Code Practice Tool!")
+        print("Welcome to Code Coach AI!")
         
         # Let user choose concept and difficulty
         print("\nAvailable concepts:")
@@ -166,10 +166,9 @@ class CodePracticeTool:
 def main():
     # Example of provider selection
     dotenv.load_dotenv()
-    provider_name, provider_factory = "OpenAI", lambda: OpenAIProvider(os.getenv('OPENAI_API_KEY'))
+    provider = lambda: OpenAIProvider(os.getenv('OPENAI_API_KEY'))
     
-    print(f"\nUsing {provider_name} as the LLM provider")
-    tool = CodePracticeTool(provider_factory())
+    tool = CodePracticeTool(provider())
     tool.run_practice_session()
 
 if __name__ == "__main__":
