@@ -1,4 +1,4 @@
-# Code Coach AI: AI-Powered Code Practice Tool
+# AIde: AI-Powered Code Practice Tool
 
 An intelligent coding practice tool that leverages OpenAI to generate coding challenges, evaluate solutions, and provide detailed feedback. It helps developers improve their coding skills through interactive practice sessions with AI-generated exercises.
 
