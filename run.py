@@ -57,16 +57,16 @@ class OpenAIProvider():
 
         Provide an evaluation in the following JSON format:
         {{
-            "score": <number between 0-100>,
+            "score": <number between 0-3>,
             "errors": [<list all the bugs present in earlier (original) code>],
             "suggestions": [<list of potential further suggestions>],
         }}
 
         Base the score on:
         - 0 points if the bug is not fixed
-        - 100 points if all the bugs and styling issues are fixed
-        - 50 points if the bugs are fixed but the code clarity is bad.
-        - 20 points if code clarity is good but the bug is not solved.
+        - 3 points if all the bugs and styling issues are fixed
+        - 2 points if the bugs are fixed but the code clarity is bad.
+        - 1 points if code clarity is good but the bug is not solved.
 
         Ensure the response is valid JSON."""
 
