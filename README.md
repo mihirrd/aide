@@ -4,7 +4,6 @@ An intelligent coding practice tool that leverages OpenAI to generate coding cha
 
 ## Features
 
-- 🎯 Customizable difficulty levels
 - 💻 Various programming concepts
 - 📊 Detailed feedback and scoring
 - 🔄 Interactive practice sessions
@@ -50,58 +49,13 @@ set OPENAI_API_KEY=your-openai-key
 python run.py
 ```
 
-2. Choose a programming concept and difficulty level from the available options.
+2. Choose a programming language and Programming concept from the available options.
 
 3. Review the generated code challenge and implement your solution.
 
 4. Type 'DONE' on a new line when finished with your solution.
 
 5. Review your feedback and score.
-
-## Available Programming Concepts
-
-- List comprehension
-- Error handling
-- File handling
-- Class implementation
-- Data processing
-- Sorting algorithm
-- Recursive function
-- Decorator implementation
-- API interaction
-- Database operations
-
-## Difficulty Levels
-
-- Beginner
-- Intermediate
-- Advanced
-
-## Example Session
-
-```
-
-Available concepts:
-1. list comprehension
-2. error handling
-3. file handling
-...
-
-Choose a concept (enter number): 1
-
-Difficulty levels:
-1. beginner
-2. intermediate
-3. advanced
-
-Choose difficulty (enter number): 1
-
-[Generated code challenge appears]
-
-Please provide your improved version of the code.
-Enter your solution (type 'DONE' on a new line when finished):
-...
-```
 
 ## Extending Code Coach
 
